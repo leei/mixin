@@ -39,7 +39,7 @@ statement before I invoke the mixin.
 
 ## Description
 
-* `mixin(base, mixed)`
+### `mixin(base, mixed)`
 
 The call `mixin(base, mixed)` returns a new constructor that adds the
 prototype for `mixed` at the back of the prototype chain for `base` and
@@ -53,7 +53,7 @@ can be achieved by calling mixin again inside the `included` callback.
 Moreover, the same constructor can not be mixed in twice to the same
 prototypical inheritance chain.
 
-* `ctor.included(base)`
+### `ctor.included(base)`
 
 If `ctor` is mixed in to another constructor (e.g. by invoking `mixin(Base, ctor)`) then `ctor.included(base)` is called with the `this` set to the mixed in constructor (e.g. `ctor`) and is passed a single argument, the new constructor created by `mixin()`.  This is extremely useful for creating dependent chains of mixins (i.e. `Mixin1` requires `Mixin2`) since `mixin` itself can be invoked from within the `included` call.
 
@@ -65,6 +65,6 @@ If `included` returns a value, then it is used as the constructor for the call t
 
 to mix the functionality of EventEmitter into any constructor that mixes in `Foo`.
 
-* `mixin.alias_method(obj, name, suffix, fun)`
+### `mixin.alias_method(obj, name, suffix, fun)`
 
 Can be used to override a method already defined on `obj`. It assigns `fun` to `obj[name+'_with_"+suffix]` and reassigns the current value of `obj[name]` to `obj[name+'_without_'+suffix]`. Finally it sets `obj[name]` to `fun`.  This is similar to Rails' 'alias_method_chain`.
