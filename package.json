@@ -1,0 +1,11 @@
+{
+  "name": "mixin",
+  "description": "Prototypical mixin layer",
+  "version": "0.1",
+  "author": "Lee Iverson <leei@sociologi.ca>",
+  "engines": { "node": ">= 0.4.0" },
+  "devDependencies": {
+    "vows": ">= 0.5.6"
+  },
+  "main": "./mixin.js"
+}
