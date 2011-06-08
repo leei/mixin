@@ -105,7 +105,7 @@ function inspect_protos(obj, name) {
 }
 
 /**
- * Alias a method that is already defined for this Object. Moves the existing
+ * Alias a property that is already defined for this Object. Moves the existing
  * property definition on {obj[method]} to {method}_without_{suffix} and
  * assigns {f} to both {method}_with_{suffix} and {method}.
  *
@@ -114,7 +114,7 @@ function inspect_protos(obj, name) {
  * {save_without_timestamp}.
  *
  *     Mixin.included = function(ctor) {
- *       mixin.alias_method(ctor.prototype, "save", "timestamp", my_save);
+ *       mixin.alias(ctor.prototype, "save", "timestamp", my_save);
  *     }
  *
  * @param {Object} obj    The target object.
@@ -123,7 +123,7 @@ function inspect_protos(obj, name) {
  * @param {Function} f    The function to use to override the method.
  * @api public
  */
-function alias_method(obj, method, suffix, f) {
+function alias(obj, method, suffix, f) {
   if (obj[method + "_without_" + suffix]) {
     throw(method + "_without_" + suffix + " already defined.");
   }
@@ -133,6 +133,6 @@ function alias_method(obj, method, suffix, f) {
   obj[method + "_with_" + suffix] = obj[method] = f;
 }
 
-mixin.alias_method = alias_method;
+mixin.alias = alias;
 
 module.exports = mixin;
