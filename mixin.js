@@ -5,7 +5,7 @@
   See LICENSE for terms.
   */
 
-var sys = require('sys');
+var util = require('util');
 
 /**
  * Mix the {mixin} constructor into the {base} constructor.  Ensures that the
@@ -86,7 +86,7 @@ function copyInto(copy, obj) {
     var p = names[i];
     if (p !== 'prototype') {
       var descr = Object.getOwnPropertyDescriptor(obj, p);
-      //console.log("obj." + p + " = " + sys.inspect(descr));
+      //console.log("obj." + p + " = " + util.inspect(descr));
       Object.defineProperty(copy, p, descr);
     }
   }
@@ -95,11 +95,11 @@ function copyInto(copy, obj) {
 mixin.copyInto = copyInto;
 
 function inspect_protos(obj, name) {
-  console.log(name + " = " + sys.inspect(obj));
+  console.log(name + " = " + util.inspect(obj));
   var i = 0;
   while (obj.__proto__) {
     obj = obj.__proto__;
-    console.log("  __proto__[" + i + "] = " + sys.inspect(obj));
+    console.log("  __proto__[" + i + "] = " + util.inspect(obj));
     ++i;
   }
 }
