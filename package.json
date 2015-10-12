@@ -3,6 +3,10 @@
   "description": "Prototypical mixin layer",
   "version": "0.2.0",
   "author": "Lee Iverson <leei@sociologi.ca>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/leei/mixin.git"
+  },
   "engines": { "node": ">= 0.4.0" },
   "devDependencies": {
     "vows": ">= 0.5.6"
